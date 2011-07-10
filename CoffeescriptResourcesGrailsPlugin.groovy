@@ -24,7 +24,7 @@ class CoffeescriptResourcesGrailsPlugin {
 Brief description of the plugin.
 '''
 
-    def watchedResources = "file:./src/coffee/**.coffee"
+    def watchedResources = [ "file:./src/coffee/*.coffee", "file:./src/coffee/**/*.coffee",  ]
     def documentation = "http://github.com/edvinasbartkus/coffeescript-resources"
 
 
