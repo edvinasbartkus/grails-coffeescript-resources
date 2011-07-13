@@ -1,0 +1,5 @@
+The Coffee Script Resources plugin is yet another plugin that compiles .coffee files to .js.
+
+This plugin is different that it uses jCoffeeScript.jar to compile. No need to have Node.js with CoffeeScript plugin installed on the system to compile coffee files.
+
+Instead of compiling every file to js this plugin is more focused on bundling coffee files into groups. Groups are colled modules. You can join several coffee files into on compiled js file. It is very useful if use Backbone.js or other MVC framework for your application.
