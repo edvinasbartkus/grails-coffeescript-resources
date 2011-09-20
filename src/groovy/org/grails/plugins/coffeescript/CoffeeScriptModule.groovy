@@ -17,7 +17,11 @@ class CoffeeScriptModule {
 
         files.each {
             def file = new File(it + ".coffee")
-            wholeContent << file.getText()
+            if(file.exists()) {
+              wholeContent << file.getText()
+            } else {
+              System.out.println("File ${it}.coffee not found for ${name} module!")
+            }
         }
 
         def content = wholeContent.join(System.getProperty("line.separator"))
