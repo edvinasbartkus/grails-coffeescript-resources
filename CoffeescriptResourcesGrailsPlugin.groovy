@@ -1,6 +1,6 @@
 import org.grails.plugins.coffeescript.ModuleManager
 import org.springframework.core.io.FileSystemResource
-import org.codehaus.groovy.grails.web.context.ServletContextHolder
+import grails.util.BuildSettingsHolder
 
 class CoffeescriptResourcesGrailsPlugin {
     // the plugin version
@@ -31,7 +31,7 @@ Brief description of the plugin.
     def onChange = { event ->
         def source = event.source
         if(source instanceof FileSystemResource && source.file.name.endsWith(".coffee")) {
-            def relativePath = source.file.path - new File(ServletContextHolder.servletContext.getRealPath("/")).parent
+            def relativePath = source.file.path - BuildSettingsHolder.settings.baseDir.path
             def modules = ModuleManager.filesHash.get(relativePath)
             if(modules) {
                 new ModuleManager().compileModules(modules)
