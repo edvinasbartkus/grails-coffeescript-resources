@@ -1,6 +1,7 @@
 import org.grails.plugins.coffeescript.ModuleManager
 import org.springframework.core.io.FileSystemResource
 import grails.util.BuildSettingsHolder
+import org.grails.plugin.resource.ResourceProcessor
 
 class CoffeescriptResourcesGrailsPlugin {
     // the plugin version
@@ -45,5 +46,11 @@ Brief description of the plugin.
 
     def doWithApplicationContext = {
         new ModuleManager().compileModules()
+    }
+
+    def doWithSpring = { ->
+        ResourceProcessor.DEFAULT_MODULE_SETTINGS['coffee'] = [
+                disposition: 'head'
+        ]
     }
 }
