@@ -4,13 +4,9 @@ import grails.util.BuildSettingsHolder
 import org.grails.plugin.resource.ResourceProcessor
 
 class CoffeescriptResourcesGrailsPlugin {
-    // the plugin version
     def version = "0.2"
-    // the version or versions of Grails the plugin is designed for
     def grailsVersion = "1.3.7 > *"
-    // the other plugins.coffeescript this plugin depends on
     def dependsOn = [:]
-    // resources that are excluded from plugin packaging
     def pluginExcludes = [
             "src/coffee/test.coffee",
             "src/coffee/smtelse.coffee",
@@ -20,14 +16,12 @@ class CoffeescriptResourcesGrailsPlugin {
 
     def author = "Edvinas Bartkus"
     def authorEmail = "edvinas@geeks.lt"
-    def title = "Create coffeescript modules that automatically compiles on every file change with jCoffeeScript"
-    def description = '''\\
-Brief description of the plugin.
-'''
+    def title = "CoffeeScript Resources"
+    def description = "Plugin that automatically compiles CoffeeScript to JavaScript and works with the resources plugin."
 
     def watchedResources = [ "file:./src/coffee/*.coffee", "file:./src/coffee/**/*.coffee",  ]
-    def documentation = "http://github.com/edvinasbartkus/coffeescript-resources"
-
+    def documentation = "http://github.com/edvinasbartkus/grails-coffeescript-resources"
+    def issueManagement = [ system: "GitHub", url: "https://github.com/edvinasbartkus/grails-coffeescript-resources/issues" ]
 
     def onChange = { event ->
         def source = event.source
