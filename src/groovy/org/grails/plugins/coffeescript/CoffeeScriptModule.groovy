@@ -31,26 +31,26 @@ class CoffeeScriptModule {
 
         def js
         try {
-          js = new org.jcoffeescript.JCoffeeScriptCompiler().compile(content)
-        } catch(Exception e) {
-          def message = e.message
-          def pattern = ~/.*Parse error on line (\d+):.*/
-          def matcher = pattern.matcher(message)
+            js = new org.jcoffeescript.JCoffeeScriptCompiler().compile(content)
+        } catch (Exception e) {
+            def message = e.message
+            def pattern = ~/.*Parse error on line (\d+):.*/
+            def matcher = pattern.matcher(message)
 
-          if(matcher.matches()) {
-            def line = matcher[0][1] as Integer
-            def range = (line-3..line+3)
+            if (matcher.matches()) {
+                def line = matcher[0][1] as Integer
+                def range = (line - 3..line + 3)
 
-            content.eachLine { l, n ->
-              if(range.contains(n+1)) {
-                System.out.println("${n+1}: ${l}")
-              }
+                content.eachLine { l, n ->
+                    if (range.contains(n + 1)) {
+                        System.out.println("${n + 1}: ${l}")
+                    }
+                }
+
+                System.out.println("Problem in line ${line}. Message: $e.message")
+            } else {
+                throw e
             }
-
-            System.out.println("Problem in line ${line}")
-					} else {
-            throw e
-          }
         }
 
         if(js)
