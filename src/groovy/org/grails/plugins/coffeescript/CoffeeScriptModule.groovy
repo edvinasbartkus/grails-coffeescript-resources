@@ -47,7 +47,7 @@ class CoffeeScriptModule {
                     }
                 }
 
-                System.out.println("Problem in line ${line}")
+                System.out.println("Problem in line ${line}. Message: $e.message")
             } else {
                 throw e
             }
