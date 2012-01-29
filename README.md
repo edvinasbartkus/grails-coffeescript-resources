@@ -1,12 +1,12 @@
-This is a grails plugin that enables the easy inclusion of coffee script in your Grails web application. 
+This is a grails plugin that enables the easy inclusion of [CoffeeScript](https://github.com/jashkenas/coffee-script) in your Grails web application. 
 It requires the well established resources plugin.
 
-# Background
-As the author says himself "CoffeeScript is a little language that compiles to JavaScript". CoffeeScript is an attempt to make writing JavaScript easier, more elegant, and more efficient. 
+## Background
+As the author, [Jeremy Ashkenas](https://github.com/jashkenas), says himself "CoffeeScript is a little language that compiles to JavaScript". CoffeeScript is an attempt to make writing JavaScript easier, more elegant, and more efficient. 
  
-The standard CoffeeScript compiler runs on NodeJs. This plugin is basically a bridge (via Rhino) to a browser compatible version of the compiler released by Jeremy Ashkenas. It uses CoffeeScript version 1.2.0.
+The standard CoffeeScript compiler runs on NodeJs. This plugin is basically a bridge (via Mozilla's [Rhino engine](https://github.com/mozilla/rhino)) to a browser compatible version of the compiler released by Jeremy Ashkenas. It uses CoffeeScript version 1.2.0.
 
-# Usage
+## Usage
 To add coffee script resources to your grails project
 
 * Install the plugin
@@ -15,6 +15,9 @@ To add coffee script resources to your grails project
 
 Example
 <pre>
+js {
+  resource url: 'js/app.js'
+}
 coffee {
   resource url: 'cs/views.coffee'
   resource url: 'cs/models.coffee'
