@@ -23,15 +23,3 @@ log4j = {
     warn   'org.mortbay.log'
 }
 
-// Modules for testing
-/*
-coffeescript.modules = {
-    one {
-        files "src/coffee/test"
-    }
-
-    two {
-        files "src/coffee/test"
-        output "test.js"
-    }
-}  */
