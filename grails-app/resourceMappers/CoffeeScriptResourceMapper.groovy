@@ -21,8 +21,8 @@ class CoffeeScriptResourceMapper implements GrailsApplicationAware {
         log.debug "Compiling coffeescript file ${original} into ${target}"
 
       try {
-        String content = new org.jcoffeescript.JCoffeeScriptCompiler().compile(input.text)
-        target.write(content)
+        String output = new org.grails.plugins.coffeescript.CoffeeScriptEngine().compile(input.text)
+        target.write(output)
 
         resource.processedFile = target
         resource.updateActualUrlFromProcessedFile()
@@ -31,7 +31,10 @@ class CoffeeScriptResourceMapper implements GrailsApplicationAware {
         resource.contentType = 'text/javascript'
 
       } catch(Exception e) {
-        log.error("Problems compiling CoffeeScript ${resource.originalUrl}")
+        log.error """
+          Problems compiling CoffeeScript ${resource.originalUrl}
+          $e
+        """
         e.printStackTrace()
       }
     }
