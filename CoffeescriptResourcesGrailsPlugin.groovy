@@ -1,10 +1,9 @@
-import org.grails.plugins.coffeescript.ModuleManager
 import org.springframework.core.io.FileSystemResource
 import grails.util.BuildSettingsHolder
 import org.grails.plugin.resource.ResourceProcessor
 
 class CoffeescriptResourcesGrailsPlugin {
-    def version = "0.2"
+    def version = "0.3.1"
     def grailsVersion = "1.3.7 > *"
     def dependsOn = [:]
     def pluginExcludes = [
@@ -24,27 +23,17 @@ class CoffeescriptResourcesGrailsPlugin {
     def issueManagement = [ system: "GitHub", url: "https://github.com/edvinasbartkus/grails-coffeescript-resources/issues" ]
 
     def onChange = { event ->
-        def source = event.source
-        if(source instanceof FileSystemResource && source.file.name.endsWith(".coffee")) {
-            def relativePath = source.file.path - BuildSettingsHolder.settings.baseDir.path
-            def modules = ModuleManager.filesHash.get(relativePath)
-            if(modules) {
-                new ModuleManager().compileModules(modules)
-            }
-        }
     }
 
     def onConfigChange = { event ->
-        new ModuleManager().compileModules()
     }
 
     def doWithApplicationContext = {
-        new ModuleManager().compileModules()
     }
 
     def doWithSpring = { ->
         ResourceProcessor.DEFAULT_MODULE_SETTINGS['coffee'] = [
-                disposition: 'head'
+                disposition: 'defer'
         ]
     }
 }

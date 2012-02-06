@@ -8,3 +8,4 @@ target/
 .settings/
 
 out/
+stacktrace.log
