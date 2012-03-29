@@ -49,7 +49,10 @@ class CoffeeScriptEngine {
       def result = cx.evaluateString(compileScope, "CoffeeScript.compile(coffeeScriptSrc)", "CoffeeScript compile command", 0, null)       
       return result
     } catch (Exception e) {
-      throw new Exception("CoffeeScript Engine compilation failed.", e)
+      throw new Exception("""
+        CoffeeScript Engine compilation of coffeescript to javascript failed.
+        $e
+        """)
     } finally {
       Context.exit()
     }      
