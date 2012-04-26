@@ -22,7 +22,7 @@ class CoffeeScriptEngine {
     try {
       classLoader = getClass().getClassLoader()
       
-      def coffeeScriptJsResource = (new ClassPathResource('org/grails/plugins/coffeescript/coffee-script-1.2.js', getClass().classLoader))
+      def coffeeScriptJsResource = (new ClassPathResource('org/grails/plugins/coffeescript/coffee-script-1.3.1.js', getClass().classLoader))
       assert coffeeScriptJsResource.exists() : "CoffeeScriptJs resource not found"
 
       def coffeeScriptJsStream = coffeeScriptJsResource.inputStream

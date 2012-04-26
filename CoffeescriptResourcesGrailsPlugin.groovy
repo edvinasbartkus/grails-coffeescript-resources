@@ -1,9 +1,10 @@
 import org.springframework.core.io.FileSystemResource
 import grails.util.BuildSettingsHolder
 import org.grails.plugin.resource.ResourceProcessor
+import org.grails.plugin.resource.ResourceTagLib
 
 class CoffeescriptResourcesGrailsPlugin {
-    def version = "0.3.1"
+    def version = "0.3.2"
     def grailsVersion = "1.3.7 > *"
     def dependsOn = [:]
     def pluginExcludes = [
@@ -32,6 +33,7 @@ class CoffeescriptResourcesGrailsPlugin {
     }
 
     def doWithSpring = { ->
+        ResourceTagLib.SUPPORTED_TYPES['coffee'] = [type:'text/javascript', writer:'js']
         ResourceProcessor.DEFAULT_MODULE_SETTINGS['coffee'] = [
                 disposition: 'defer'
         ]
