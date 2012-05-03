@@ -23,5 +23,31 @@ coffee {
   resource url: 'cs/models.coffee'
 }
 </pre>
+
+Files should be located:
+<pre>
+- web-app
+ - js
+    - app/.js
+ - cs
+    - views.coffee
+    - models.coffee
+</pre>
+
 The above example will create a resource you can include in pages or have another resource depend on. The CoffeeScript files are converted
 to JavaScript, and included like any of your JavaScript files. The default disposition for your CoffeeScript follows the JavaScript default: "defer" -  that is they will appear at the end of your page.
+
+## Problems
+Every resource module is compressed to bundle. By default .coffee files are not added to any bundle. In order to have it in the bundle you must explicitly declare bundle attribute for the resource line or defaultBundle for the module.
+<pre>
+  modules {
+    example1 {
+      defaultBundle 'example1'
+      resource url: 'cs/test.coffee'
+    }
+
+    exmaple2 {
+      resource url: 'cs/test.coffee', bundle: 'example1'
+    }
+  }
+</pre>
