@@ -1,6 +1,7 @@
 import org.grails.plugin.resource.mapper.MapperPhase
 import org.codehaus.groovy.grails.commons.GrailsApplication
 import org.codehaus.groovy.grails.plugins.support.aware.GrailsApplicationAware
+import org.mozilla.javascript.EvaluatorException
 
 class CoffeeScriptResourceMapper implements GrailsApplicationAware {
 	def phase = MapperPhase.GENERATION
@@ -35,6 +36,13 @@ class CoffeeScriptResourceMapper implements GrailsApplicationAware {
           Problems compiling CoffeeScript ${resource.originalUrl}
           $e
         """
+        Throwable cause = e
+        while (cause.cause) {
+          cause = cause.cause
+          if (cause instanceof EvaluatorException) {
+            log.error("CoffeeScript compilation error: $cause.message")
+          }
+        }
         e.printStackTrace()
       }
     }
