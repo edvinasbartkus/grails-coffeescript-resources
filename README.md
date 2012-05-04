@@ -51,3 +51,10 @@ Every resource module is compressed to bundle. By default .coffee files are not 
     }
   }
 </pre>
+
+Plugin doesn't apply when you have enabled debug mode for resource plugin:
+<pre>
+grails.resources.debug = true
+</pre>
+
+It's because resource plugin disable processing, when debug is enabled, see [resource plugin docs](http://grails-plugins.github.com/grails-resources/guide/8.%20Debugging.html)
