@@ -11,17 +11,17 @@ grails.project.dependency.resolution = {
     log "warn" // log level of Ivy resolver, either 'error', 'warn', 'info', 'debug' or 'verbose'
     repositories {
         grailsCentral()
+        grailsRepo "http://grails.org/plugins"
     }
     dependencies {
       // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
       runtime 'org.mozilla:rhino:1.7R3'    
     }
     plugins {
-        runtime(":resources:1.1.6")
-        build(":tomcat:$grailsVersion",
-              ":release:1.0.0") {
-            export = false
+        build ":release:2.0.0", {
+          export = false
         }
+        runtime(":resources:1.1.6")
     }
 
 }
