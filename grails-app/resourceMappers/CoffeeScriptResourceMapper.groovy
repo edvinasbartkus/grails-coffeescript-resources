@@ -15,7 +15,12 @@ class CoffeeScriptResourceMapper implements GrailsApplicationAware {
       File target
 
 	  if(resource.sourceUrl && original.name.toLowerCase().endsWith(COFFEE_FILE_EXTENSION)) {
-      File input = grailsApplication.parentContext.getResource(resource.sourceUrl).file
+      File input
+      try {
+        input = grailsApplication.parentContext.getResource(resource.sourceUrl).file
+      } catch (FileNotFoundException e) {
+        input = new File(original.absolutePath)
+      }
       target = new File(original.absolutePath.replaceAll(/(?i)\.coffee/, '.js'))
 
       if(log.debugEnabled)
