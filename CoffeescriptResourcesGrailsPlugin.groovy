@@ -4,7 +4,7 @@ import org.grails.plugin.resource.ResourceProcessor
 import org.grails.plugin.resource.ResourceTagLib
 
 class CoffeescriptResourcesGrailsPlugin {
-    def version = "0.3.4"
+    def version = "0.3.5"
     def grailsVersion = "1.3.7 > *"
     def dependsOn = [:]
     def pluginExcludes = [
