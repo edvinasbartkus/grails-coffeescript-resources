@@ -19,7 +19,7 @@ class CoffeescriptResourcesGrailsPlugin {
     def title = "CoffeeScript Resources"
     def description = "Plugin that automatically compiles CoffeeScript to JavaScript and works with the resources plugin."
 
-    def watchedResources = [ "file:./src/coffee/*.coffee", "file:./src/coffee/**/*.coffee",  ]
+    def watchedResources = [ "file:./web-app/coffee/**/*.coffee", "file:./web-app/cs/**/*.coffee" ]
     def documentation = "http://github.com/edvinasbartkus/grails-coffeescript-resources"
     def issueManagement = [ system: "GitHub", url: "https://github.com/edvinasbartkus/grails-coffeescript-resources/issues" ]
 
