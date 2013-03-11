@@ -21,8 +21,8 @@ class CoffeeScriptEngine {
   def CoffeeScriptEngine(){
     try {
       classLoader = getClass().getClassLoader()
-      
-      def coffeeScriptJsResource = (new ClassPathResource('org/grails/plugins/coffeescript/coffee-script-1.3.3.js', getClass().classLoader))
+
+      def coffeeScriptJsResource = (new ClassPathResource('org/grails/plugins/coffeescript/coffee-script-1.6.1.js', getClass().classLoader))
       assert coffeeScriptJsResource.exists() : "CoffeeScriptJs resource not found"
 
       def coffeeScriptJsStream = coffeeScriptJsResource.inputStream
@@ -40,13 +40,13 @@ class CoffeeScriptEngine {
     }
   }
 
-  def compile(String input) {    
+  def compile(String input) {
     try {
       def cx = Context.enter()
       def compileScope = cx.newObject(globalScope)
       compileScope.setParentScope(globalScope)
       compileScope.put("coffeeScriptSrc", compileScope, input)
-      def result = cx.evaluateString(compileScope, "CoffeeScript.compile(coffeeScriptSrc)", "CoffeeScript compile command", 0, null)       
+      def result = cx.evaluateString(compileScope, "CoffeeScript.compile(coffeeScriptSrc)", "CoffeeScript compile command", 0, null)
       return result
     } catch (Exception e) {
       throw new Exception("""
@@ -55,7 +55,7 @@ class CoffeeScriptEngine {
         """)
     } finally {
       Context.exit()
-    }      
+    }
   }
 
 }
