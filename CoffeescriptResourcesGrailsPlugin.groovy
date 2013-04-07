@@ -12,6 +12,7 @@ class CoffeescriptResourcesGrailsPlugin {
             "src/coffee/test.coffee",
             "src/coffee/smtelse.coffee",
             "web-app/js/one.js",
+            "grails-app/conf/ApplicationResources.groovy",
             "grails-app/views/error.gsp"
     ]
 
