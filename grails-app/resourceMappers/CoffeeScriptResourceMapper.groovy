@@ -27,7 +27,7 @@ class CoffeeScriptResourceMapper implements GrailsApplicationAware {
         log.debug "Compiling coffeescript file ${original} into ${target}"
 
       try {
-        String output = new org.grails.plugins.coffeescript.CoffeeScriptEngine().compile(input.text)
+        String output = new org.grails.plugins.coffeescript.CoffeeScriptEngine(grailsApplication).compile(input.text)
         target.write(output)
 
         resource.processedFile = target
