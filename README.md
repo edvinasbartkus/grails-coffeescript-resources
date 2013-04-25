@@ -37,6 +37,15 @@ Files should be located:
 The above example will create a resource you can include in pages or have another resource depend on. The CoffeeScript files are converted
 to JavaScript, and included like any of your JavaScript files. The default disposition for your CoffeeScript follows the JavaScript default: "defer" -  that is they will appear at the end of your page.
 
+## Bare mode
+
+Compile the JavaScript without the top-level function safety wrapper (--bare option for compiler).
+
+Add option into Config.groovy:
+<pre>
+grails.plugins.coffeescript.bare=true
+</pre>
+
 ## Problems
 Every resource module is compressed to bundle. By default .coffee files are not added to any bundle. In order to have it in the bundle you must explicitly declare bundle attribute for the resource line or defaultBundle for the module.
 <pre>
