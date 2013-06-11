@@ -4,7 +4,7 @@ It requires the well established resources plugin.
 ## Background
 As the author, [Jeremy Ashkenas](https://github.com/jashkenas), says himself "CoffeeScript is a little language that compiles to JavaScript". CoffeeScript is an attempt to make writing JavaScript easier, more elegant, and more efficient. 
  
-The standard CoffeeScript compiler runs on NodeJs. This plugin is basically a bridge (via Mozilla's [Rhino engine](https://github.com/mozilla/rhino)) to a browser compatible version of the compiler released by Jeremy Ashkenas. It uses CoffeeScript version 1.2.0.
+The standard CoffeeScript compiler runs on NodeJs. This plugin is basically a bridge (via Mozilla's [Rhino engine](https://github.com/mozilla/rhino)) to a browser compatible version of the compiler released by Jeremy Ashkenas. It uses CoffeeScript version 1.6.3.
 
 ## Usage
 To add coffee script resources to your grails project
