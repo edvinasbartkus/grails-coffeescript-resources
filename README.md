@@ -14,7 +14,7 @@ To add coffee script resources to your grails project
 * Reference your CoffeeScript files in your ApplicationResources file (or where ever you are defining your resources).
 
 Example
-<pre>
+```groovy
 js {
   resource url: 'js/app.js'
 }
@@ -22,24 +22,24 @@ coffee {
   resource url: 'cs/views.coffee'
   resource url: 'cs/models.coffee'
 }
-</pre>
+```
 
 Files should be located:
-<pre>
+```
 - web-app
  - js
     - app/.js
  - cs
     - views.coffee
     - models.coffee
-</pre>
+```
 
 The above example will create a resource you can include in pages or have another resource depend on. The CoffeeScript files are converted
 to JavaScript, and included like any of your JavaScript files. The default disposition for your CoffeeScript follows the JavaScript default: "defer" -  that is they will appear at the end of your page.
 
 ## Problems
 Every resource module is compressed to bundle. By default .coffee files are not added to any bundle. In order to have it in the bundle you must explicitly declare bundle attribute for the resource line or defaultBundle for the module.
-<pre>
+```groovy
   modules {
     example1 {
       defaultBundle 'example1'
@@ -50,11 +50,11 @@ Every resource module is compressed to bundle. By default .coffee files are not 
       resource url: 'cs/test.coffee', bundle: 'example1'
     }
   }
-</pre>
+```
 
 Plugin doesn't apply when you have enabled debug mode for resource plugin:
-<pre>
+```groovy
 grails.resources.debug = true
-</pre>
+```
 
 It's because resource plugin disable processing, when debug is enabled, see [resource plugin docs](http://grails-plugins.github.com/grails-resources/guide/8.%20Debugging.html)
